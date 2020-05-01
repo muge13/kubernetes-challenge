@@ -13,7 +13,7 @@ sudo usermod -aG docker "$(id -gn)"
 sudo systemctl start docker
 
 # echo "Confirm service"
-docker info
+sg "$(id -gn)" -c "docker info"
 
 # echo "Additional Setup"
 sudo mkdir -p /usr/local/bin/
@@ -27,10 +27,9 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/miniku
 sudo install minikube /usr/local/bin/
 
 # echo "Start minikube"
-minikube start --driver=docker
-minikube addons enable ingress
-minikube status
-
+sg "$(id -gn)" -c "minikube start --driver=docker"
+sg "$(id -gn)" -c "minikube addons enable ingress"
+sg "$(id -gn)" -c "minikube status"
 
 
 # echo "Install kubectl"

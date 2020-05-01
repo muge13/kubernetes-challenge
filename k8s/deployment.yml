@@ -34,9 +34,9 @@ spec:
         env:
           - name: NAME
             value: Ian
-        # readinessProbe:
-        #     httpGet:
-        #       path: /
-        #       port: 4000
-        #     initialDelaySeconds: 20
-        #     timeoutSeconds: 5
+        readinessProbe:
+            httpGet:
+              path: /
+              port: 4000
+            initialDelaySeconds: 20
+            timeoutSeconds: 5
