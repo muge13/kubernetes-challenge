@@ -31,6 +31,7 @@ We setup docker, minikube, and kubectl using the given bash file
 ```
 $ bash ./sh_setup.sh
 ```
+It is advisable to log out and log back in so that the current user's shell is registered under the docker group
 We build the docker image and tag it
 ```
 $ bash ./sh_build.sh
