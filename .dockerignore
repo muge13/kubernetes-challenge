@@ -1,0 +1,9 @@
+.git
+k8s
+Dockerfile
+README.md
+.gitignore
+*.yml
+*.sh
+docker-compose
+minikube

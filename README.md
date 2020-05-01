@@ -25,3 +25,21 @@ You can expose Minikube's Docker daemon with:
 ```shell
 $ eval (minkube docker-env)
 ```
+
+# Solution
+We setup docker, minikube, and kubectl using the given bash file
+```
+$ bash ./sh_setup.sh
+```
+We build the docker image and tag it
+```
+$ bash ./sh_build.sh
+```
+We then compile and deploy the kubernetes deployment,service and ingress
+```
+$ bash ./sh_deploy.sh
+```
+We can then test the service
+```
+$ curl $(minikube ip)
+```

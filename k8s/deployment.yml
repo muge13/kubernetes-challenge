@@ -1,0 +1,42 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-stack
+  namespace: learn-k8s
+  labels:
+    app: k8s-stack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8s-stack
+  template:
+    metadata:
+      labels:
+        app: k8s-stack
+    spec:
+      containers:
+      - name: k8s-stack
+        image: learn-k8s/demo:latest
+        imagePullPolicy: Never
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 256M
+          requests:
+            cpu: 100m
+            memory: 128M
+        ports:
+        - containerPort: 4000
+          name: http
+          protocol: TCP
+        env:
+          - name: NAME
+            value: Ian
+        # readinessProbe:
+        #     httpGet:
+        #       path: /
+        #       port: 4000
+        #     initialDelaySeconds: 20
+        #     timeoutSeconds: 5
